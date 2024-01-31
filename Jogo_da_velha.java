@@ -27,7 +27,7 @@ public class Jogo_da_velha {
             }
 
         }
-
+        System.out.println("Fim de jogo");
     }
 
     public static void desenhaJogo(Campo[][] velha){ // redesenhar a cada interaçao
@@ -44,6 +44,26 @@ public class Jogo_da_velha {
     public static void limparTela(){
          for (int cont = 0; cont<200; cont ++){ 
             System.out.println(""); 
+        }
+    }
+    public static int[] jogar (Scanner scan, char sa){
+        int p[]=new int[2];
+        System.out.printf("%s %c%n","Quem Joga: ", sa)
+        System.out.print("Informa a linha: ");
+        p[0]=scan.nextInt();
+        System.out.print("Informa a coluna: ");
+        p[1]=scan.nextInt();
+
+        return p;
+
+    }
+
+    public Boolean verificarJogada(Campo[][] velha, int p[], simboloAtual){
+        if (velha[p[0]][p[1]].getsimbolo()== ' '){
+            velha[p[0]][p[1]].setsimbolo(simboloAtual);
+            return true;
+        } else{
+            return false;
         }
     }
 
